@@ -1,26 +1,29 @@
 #!/usr/bin/env python3
-"""slugify-ai-mcp"""
-import asyncio, json
-from mcp.server import Server
-from mcp.server.stdio import stdio_server
-from mcp.server.models import InitializationOptions
-from mcp.types import Tool, TextContent
-import mcp.types as types
+"""Convert text to URL-safe slugs. — MEOK AI Labs."""
+import json, os, re, hashlib, uuid as _uuid, random
+from datetime import datetime, timezone
+from collections import defaultdict
+from mcp.server.fastmcp import FastMCP
 
-server = Server("slugify-ai-mcp")
+FREE_DAILY_LIMIT = 30
+_usage = defaultdict(list)
+def _rl(c="anon"):
+    now = datetime.now(timezone.utc)
+    _usage[c] = [t for t in _usage[c] if (now-t).total_seconds() < 86400]
+    if len(_usage[c]) >= FREE_DAILY_LIMIT: return json.dumps({"error": "Limit/day"})
+    _usage[c].append(now); return None
 
-@server.list_tools()
-async def list_tools():
-    return [Tool(name="run", description="Process input", inputSchema={"type":"object","properties":{"input":{"type":"string"}},"required":["input"]})]
+mcp = FastMCP("slugify", instructions="MEOK AI Labs — Convert text to URL-safe slugs.")
 
-@server.call_tool()
-async def call_tool(name, arguments=None):
-    inp = (arguments or {}).get("input", "")
-    return [TextContent(type="text", text=json.dumps({"output": f"Processed by slugify-ai-mcp: {inp}"}, indent=2))]
 
-async def main():
-    async with stdio_server(server._read_stream, server._write_stream) as (rs, ws):
-        await server.run(rs, ws, InitializationOptions(server_name="slugify-ai-mcp", server_version="0.1.0", capabilities=server.get_capabilities()))
+@mcp.tool()
+def slugify(text: str, separator: str = "-") -> str:
+    """Convert text to URL-safe slug."""
+    if err := _rl(): return err
+    slug = re.sub(r'[^\w\s-]', '', text.lower().strip())
+    slug = re.sub(r'[\s_]+', separator, slug)
+    slug = re.sub(f'{separator}+', separator, slug).strip(separator)
+    return json.dumps({"original": text, "slug": slug, "length": len(slug)}, indent=2)
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    mcp.run()
