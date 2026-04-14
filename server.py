@@ -1,29 +1,13 @@
 #!/usr/bin/env python3
-"""Convert text to URL-safe slugs. — MEOK AI Labs."""
-import json, os, re, hashlib, uuid as _uuid, random
-from datetime import datetime, timezone
-from collections import defaultdict
+import re, json
 from mcp.server.fastmcp import FastMCP
-
-FREE_DAILY_LIMIT = 30
-_usage = defaultdict(list)
-def _rl(c="anon"):
-    now = datetime.now(timezone.utc)
-    _usage[c] = [t for t in _usage[c] if (now-t).total_seconds() < 86400]
-    if len(_usage[c]) >= FREE_DAILY_LIMIT: return json.dumps({"error": "Limit/day"})
-    _usage[c].append(now); return None
-
-mcp = FastMCP("slugify", instructions="MEOK AI Labs — Convert text to URL-safe slugs.")
-
-
-@mcp.tool()
-def slugify(text: str, separator: str = "-") -> str:
-    """Convert text to URL-safe slug."""
-    if err := _rl(): return err
-    slug = re.sub(r'[^\w\s-]', '', text.lower().strip())
-    slug = re.sub(r'[\s_]+', separator, slug)
-    slug = re.sub(f'{separator}+', separator, slug).strip(separator)
-    return json.dumps({"original": text, "slug": slug, "length": len(slug)}, indent=2)
-
+mcp = FastMCP("slugify-ai-mcp")
+@mcp.tool(name="slugify")
+async def slugify(text: str) -> str:
+    s = re.sub(r'[^\w\s-]', '', text.lower()).strip()
+    return json.dumps({"slug": re.sub(r'[-\s]+', '-', s)})
+@mcp.tool(name="deslugify")
+async def deslugify(slug: str) -> str:
+    return json.dumps({"text": slug.replace('-', ' ').title()})
 if __name__ == "__main__":
     mcp.run()
