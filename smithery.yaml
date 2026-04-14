@@ -1,10 +1,16 @@
 name: slugify-ai-mcp
-description: "MEOK AI Labs — slugify-ai-mcp"
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/slugify-ai-mcp
-license: MIT
-categories: [Utilities, Web Development]
-tags: [slugify, url-slug, text-normalization, seo-friendly-url, string-processing]
-runtime: python
-entrypoint: server.py
+description: "slugify-ai-mcp \u2014 Built by [MEOK AI Labs](https://meok.ai)"
+version: 1.0.0
+tools:
+- name: slugify
+  description: ''
+  parameters:
+  - name: text
+    type: string
+    required: true
+- name: deslugify
+  description: ''
+  parameters:
+  - name: slug
+    type: string
+    required: true

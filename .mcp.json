@@ -1,20 +1,37 @@
 {
   "name": "slugify-ai-mcp",
-  "description": "MEOK AI Labs \u2014 slugify-ai-mcp",
-  "vendor": "MEOK AI Labs",
-  "homepage": "https://meok.ai",
-  "repository": "https://github.com/CSOAI-ORG/slugify-ai-mcp",
-  "runtime": "python",
-  "entrypoint": "server.py",
+  "description": "slugify-ai-mcp \u2014 Built by [MEOK AI Labs](https://meok.ai)",
+  "version": "1.0.0",
   "tools": [
-    "run"
-  ],
-  "categories": [
-    "Utilities",
-    "Web Development"
-  ],
-  "pricing": {
-    "free": "50 calls/day",
-    "pro": "$9/mo"
-  }
+    {
+      "name": "slugify",
+      "description": "",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "deslugify",
+      "description": "",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      }
+    }
+  ]
 }
