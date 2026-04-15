@@ -1,6 +1,6 @@
 {
   "name": "slugify-ai-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 URL slug generation and text normalization. Slugify, deslugify, batch process, and generate SEO-frie",
+  "description": "Slugify Ai tools for AI agents. Capabilities: slugify, deslugify, batch slugify. Built by MEOK AI Labs.",
   "version": "1.0.0",
   "tools": [
     {
