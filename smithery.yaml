@@ -1,16 +1,53 @@
 name: slugify-ai-mcp
-description: "slugify-ai-mcp \u2014 Built by [MEOK AI Labs](https://meok.ai)"
+description: URL slug generation and text normalization. Slugify, deslugify, batch
+  process, and generate SEO-frie
 version: 1.0.0
 tools:
 - name: slugify
-  description: ''
+  description: Convert text to a URL-friendly slug. Handles Unicode, transliteration,
+    stop words.
   parameters:
   - name: text
     type: string
     required: true
+  - name: separator
+    type: string
+    required: false
+  - name: max_length
+    type: integer
+    required: false
+  - name: remove_stop_words
+    type: boolean
+    required: false
 - name: deslugify
-  description: ''
+  description: Convert a slug back to human-readable text.
   parameters:
   - name: slug
     type: string
     required: true
+- name: batch_slugify
+  description: Batch slugify multiple texts (pipe-separated). E.g. 'Hello World|My
+    Article|New Post'.
+  parameters:
+  - name: texts
+    type: string
+    required: true
+  - name: separator
+    type: string
+    required: false
+  - name: remove_stop_words
+    type: boolean
+    required: false
+- name: generate_seo_slug
+  description: Generate an SEO-optimized slug from a title. Removes stop words, adds
+    optional category/date prefix.
+  parameters:
+  - name: title
+    type: string
+    required: true
+  - name: category
+    type: string
+    required: false
+  - name: date_prefix
+    type: boolean
+    required: false

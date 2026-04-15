@@ -1,16 +1,25 @@
 {
   "name": "slugify-ai-mcp",
-  "description": "slugify-ai-mcp \u2014 Built by [MEOK AI Labs](https://meok.ai)",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 URL slug generation and text normalization. Slugify, deslugify, batch process, and generate SEO-frie",
   "version": "1.0.0",
   "tools": [
     {
       "name": "slugify",
-      "description": "",
+      "description": "Convert text to a URL-friendly slug. Handles Unicode, transliteration, stop words.",
       "parameters": {
         "type": "object",
         "properties": {
           "text": {
             "type": "string"
+          },
+          "separator": {
+            "type": "string"
+          },
+          "max_length": {
+            "type": "integer"
+          },
+          "remove_stop_words": {
+            "type": "boolean"
           }
         },
         "required": [
@@ -20,7 +29,7 @@
     },
     {
       "name": "deslugify",
-      "description": "",
+      "description": "Convert a slug back to human-readable text.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -30,6 +39,48 @@
         },
         "required": [
           "slug"
+        ]
+      }
+    },
+    {
+      "name": "batch_slugify",
+      "description": "Batch slugify multiple texts (pipe-separated). E.g. 'Hello World|My Article|New Post'.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "texts": {
+            "type": "string"
+          },
+          "separator": {
+            "type": "string"
+          },
+          "remove_stop_words": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "texts"
+        ]
+      }
+    },
+    {
+      "name": "generate_seo_slug",
+      "description": "Generate an SEO-optimized slug from a title. Removes stop words, adds optional category/date prefix.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "date_prefix": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "title"
         ]
       }
     }
