@@ -1,69 +1,38 @@
-# Slugify Ai
+<div align="center">
 
-> By [MEOK AI Labs](https://meok.ai) — URL slug generation and text normalization. Slugify, deslugify, batch process, and generate SEO-friendly URLs. By MEOK AI Labs.
+[![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/slugify-ai-mcp)](https://github.com/CSOAI-ORG/slugify-ai-mcp/stargazers)
 
-Slugify AI MCP — MEOK AI Labs. URL slug generation, text normalization, SEO-friendly transformations.
+# uslugifyU aiU mcp
+
+**Slugify AI MCP — MEOK AI Labs. URL slug generation, text normalization, SEO-friendly transformations.**
+
+[![npm version](https://img.shields.io/npm/v/@meok-ai/slugify-ai-mcp)](https://www.npmjs.com/package/@meok-ai/slugify-ai-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
+
+[Installation](#installation) · [Docs](https://csoai.org) · [Report Bug](https://github.com/CSOAI-ORG/slugify-ai-mcp/issues)
+
+</div>
+
+---
 
 ## Installation
 
 ```bash
 pip install slugify-ai-mcp
+# or
+npm install -g @meok-ai/slugify-ai-mcp
 ```
 
-## Usage
+## Quick Start
 
-```bash
-# Run standalone
-python server.py
+See the project repository for full documentation and examples.
 
-# Or via MCP
-mcp install slugify-ai-mcp
-```
+## Enterprise Support
 
-## Tools
-
-### `slugify`
-Convert text to a URL-friendly slug. Handles Unicode, transliteration, stop words.
-
-**Parameters:**
-- `text` (str)
-- `separator` (str)
-- `max_length` (int)
-- `remove_stop_words` (bool)
-
-### `deslugify`
-Convert a slug back to human-readable text.
-
-**Parameters:**
-- `slug` (str)
-
-### `batch_slugify`
-Batch slugify multiple texts (pipe-separated). E.g. 'Hello World|My Article|New Post'.
-
-**Parameters:**
-- `texts` (str)
-- `separator` (str)
-- `remove_stop_words` (bool)
-
-### `generate_seo_slug`
-Generate an SEO-optimized slug from a title. Removes stop words, adds optional category/date prefix.
-
-**Parameters:**
-- `title` (str)
-- `category` (str)
-- `date_prefix` (bool)
-
-
-## Authentication
-
-Free tier: 15 calls/day. Upgrade at [meok.ai/pricing](https://meok.ai/pricing) for unlimited access.
-
-## Links
-
-- **Website**: [meok.ai](https://meok.ai)
-- **GitHub**: [CSOAI-ORG/slugify-ai-mcp](https://github.com/CSOAI-ORG/slugify-ai-mcp)
-- **PyPI**: [pypi.org/project/slugify-ai-mcp](https://pypi.org/project/slugify-ai-mcp/)
+- 📧 nicholas@csoai.org
+- 🌐 [CSOAI.org](https://csoai.org)
 
 ## License
 
-MIT — MEOK AI Labs
+MIT © [CSOAI](https://csoai.org)
