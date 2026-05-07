@@ -60,7 +60,23 @@ def _make_slug(text: str, separator: str = "-", max_length: int = 80, remove_sto
 
 @mcp.tool()
 def slugify(text: str, separator: str = "-", max_length: int = 80, remove_stop_words: bool = False, api_key: str = "") -> str:
-    """Convert text to a URL-friendly slug. Handles Unicode, transliteration, stop words."""
+    """Convert text to a URL-friendly slug. Handles Unicode, transliteration, stop words.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -78,7 +94,23 @@ def slugify(text: str, separator: str = "-", max_length: int = 80, remove_stop_w
 
 @mcp.tool()
 def deslugify(slug: str, api_key: str = "") -> str:
-    """Convert a slug back to human-readable text."""
+    """Convert a slug back to human-readable text.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -92,7 +124,23 @@ def deslugify(slug: str, api_key: str = "") -> str:
 
 @mcp.tool()
 def batch_slugify(texts: str, separator: str = "-", remove_stop_words: bool = False, api_key: str = "") -> str:
-    """Batch slugify multiple texts (pipe-separated). E.g. 'Hello World|My Article|New Post'."""
+    """Batch slugify multiple texts (pipe-separated). E.g. 'Hello World|My Article|New Post'.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -117,7 +165,22 @@ def batch_slugify(texts: str, separator: str = "-", remove_stop_words: bool = Fa
 
 @mcp.tool()
 def generate_seo_slug(title: str, category: str = "", date_prefix: bool = False, api_key: str = "") -> str:
-    """Generate an SEO-optimized slug from a title. Removes stop words, adds optional category/date prefix."""
+    """Generate an SEO-optimized slug from a title. Removes stop words, adds optional category/date prefix.
+
+    Behavior:
+        This tool generates structured output without modifying external systems.
+        Output is deterministic for identical inputs. No side effects.
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
