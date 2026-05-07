@@ -76,6 +76,14 @@ def slugify(text: str, separator: str = "-", max_length: int = 80, remove_stop_w
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        text (str): The text to analyze or process.
+        separator (str): The separator to analyze or process.
+        max_length (int): The max length to analyze or process.
+        remove_stop_words (bool): The remove stop words to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -124,6 +132,11 @@ def deslugify(slug: str, api_key: str = "") -> str:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        slug (str): The slug to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -168,6 +181,13 @@ def batch_slugify(texts: str, separator: str = "-", remove_stop_words: bool = Fa
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        texts (str): The texts to analyze or process.
+        separator (str): The separator to analyze or process.
+        remove_stop_words (bool): The remove stop words to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -222,6 +242,13 @@ def generate_seo_slug(title: str, category: str = "", date_prefix: bool = False,
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        title (str): The title to analyze or process.
+        category (str): The category to analyze or process.
+        date_prefix (bool): The date prefix to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
