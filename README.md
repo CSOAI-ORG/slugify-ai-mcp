@@ -1,45 +1,58 @@
-[![slugify-ai-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/slugify-ai-mcp/badges/score.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/slugify-ai-mcp)
-[![MCP Registry](https://img.shields.io/badge/MCP_Registry-Published-green)](https://registry.modelcontextprotocol.io)
-[![PyPI](https://img.shields.io/pypi/v/slugify-ai-mcp)](https://pypi.org/project/slugify-ai-mcp/)
-
-[![slugify-ai-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/slugify-ai-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/slugify-ai-mcp)
-
 <div align="center">
 
-[![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/slugify-ai-mcp)](https://github.com/CSOAI-ORG/slugify-ai-mcp/stargazers)
+# Slugify Ai MCP
 
-# uslugifyU aiU mcp
+**MCP server for slugify ai mcp operations**
 
-**Slugify AI MCP — MEOK AI Labs. URL slug generation, text normalization, SEO-friendly transformations.**
-
-[![npm version](https://img.shields.io/npm/v/@meok-ai/slugify-ai-mcp)](https://www.npmjs.com/package/@meok-ai/slugify-ai-mcp)
+[![PyPI](https://img.shields.io/pypi/v/meok-slugify-ai-mcp)](https://pypi.org/project/meok-slugify-ai-mcp/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
-
-[Installation](#installation) · [Docs](https://csoai.org) · [Report Bug](https://github.com/CSOAI-ORG/slugify-ai-mcp/issues)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-MCP_Server-purple)](https://meok.ai)
 
 </div>
 
----
+## Overview
+
+Slugify Ai MCP provides AI-powered tools via the Model Context Protocol (MCP).
+
+## Tools
+
+| Tool | Description |
+|------|-------------|
+| `slugify` | Convert text to a URL-friendly slug. Handles Unicode, transliteration, stop word |
+| `deslugify` | Convert a slug back to human-readable text. |
+| `batch_slugify` | Batch slugify multiple texts (pipe-separated). E.g. 'Hello World|My Article|New  |
+| `generate_seo_slug` | Generate an SEO-optimized slug from a title. Removes stop words, adds optional c |
 
 ## Installation
 
 ```bash
-pip install slugify-ai-mcp
-# or
-npm install -g @meok-ai/slugify-ai-mcp
+pip install meok-slugify-ai-mcp
 ```
 
-## Quick Start
+## Usage with Claude Desktop
 
-See the project repository for full documentation and examples.
+Add to your Claude Desktop MCP config (`claude_desktop_config.json`):
 
-## Enterprise Support
+```json
+{
+  "mcpServers": {
+    "slugify-ai": {
+      "command": "python",
+      "args": ["-m", "meok_slugify_ai_mcp.server"]
+    }
+  }
+}
+```
 
-- 📧 nicholas@csoai.org
-- 🌐 [CSOAI.org](https://csoai.org)
+## Usage with FastMCP
+
+```python
+from mcp.server.fastmcp import FastMCP
+
+# This server exposes 4 tool(s) via MCP
+# See server.py for full implementation
+```
 
 ## License
 
-MIT © [CSOAI](https://csoai.org)
-<!-- mcp-name: io.github.CSOAI-ORG/slugify-ai-mcp -->
+MIT © [MEOK AI Labs](https://meok.ai)
