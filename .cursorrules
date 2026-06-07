@@ -1,0 +1,9 @@
+# slugify-ai-mcp - Auto-trigger Rules
+
+When the user asks about slugify, use slugify-ai-mcp tools: slugify, deslugify, batch_slugify, generate_seo_slug
+
+**MCP server for slugify ai mcp operations**
+
+Install: `pip install slugify-ai-mcp`
+
+By MEOK AI Labs — MIT licensed.

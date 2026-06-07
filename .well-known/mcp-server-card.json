@@ -1,0 +1,25 @@
+{
+  "name": "slugify-ai-mcp",
+  "title": "Slugify Ai Mcp",
+  "description": "Slugify Ai tools for AI agents. Capabilities: slugify, deslugify, batch slugify. Built by MEOK AI Labs.",
+  "version": "1.0.6",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "slugify"
+    },
+    {
+      "name": "deslugify"
+    },
+    {
+      "name": "batch_slugify"
+    },
+    {
+      "name": "generate_seo_slug"
+    }
+  ]
+}

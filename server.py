@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Slugify AI MCP — MEOK AI Labs. URL slug generation, text normalization, SEO-friendly transformations."""
+"""
+Slugify AI MCP — MEOK AI Labs. URL slug generation, text normalization, SEO-friendly transformations."""
 
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
 from auth_middleware import check_access
 
 import re, json, unicodedata, hashlib
@@ -101,7 +101,7 @@ def slugify(text: str, separator: str = "-", max_length: int = 80, remove_stop_w
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     slug = _make_slug(text, separator=separator, max_length=max_length, remove_stop_words=remove_stop_words)
@@ -154,7 +154,7 @@ def deslugify(slug: str, api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     for sep in ['-', '_', '.']:
@@ -205,7 +205,7 @@ def batch_slugify(texts: str, separator: str = "-", remove_stop_words: bool = Fa
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     items = [t.strip() for t in texts.split('|') if t.strip()]
@@ -266,7 +266,7 @@ def generate_seo_slug(title: str, category: str = "", date_prefix: bool = False,
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     slug = _make_slug(title, remove_stop_words=True, max_length=60)
@@ -291,5 +291,8 @@ def generate_seo_slug(title: str, category: str = "", date_prefix: bool = False,
     }
 
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == '__main__':
+    main()
