@@ -1,0 +1,22 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "slugify-ai-mcp",
+    "description": "Slugify Ai MCP Server by MEOK AI Labs",
+    "version": "1.0.6",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "slugify-ai-mcp"
+      }
+    ],
+    "capabilities": [
+      "slugify",
+      "deslugify",
+      "batch_slugify",
+      "generate_seo_slug"
+    ]
+  }
+}
